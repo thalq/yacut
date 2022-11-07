@@ -58,23 +58,10 @@
         </div>
         <div class="col-sm">
           <p class="text-center">
-            {% with messages = get_flashed_messages(category_filter=["link"]) %}
-              {% if messages %}
-                <h5 class="text-center">Ваша новая ссылка готова</h5>
-                  {% for message in messages %}
-                    <a href="{{ message }}">
-                      {{ message }}
-                    </a>
-                  {% endfor %}
-              {% endif %}
-            {% endwith %}
-          {% with messages = get_flashed_messages(category_filter=["fail"]) %}
-            {% if messages %}
-              {% for message in messages %}
-                <h5> {{ message }} </h5>
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
+            <h5 class="text-center">
+              Ваша новая ссылка готова:<br />
+              <a href="{{ url_for('short_link_view', short=short, _external=True) }}">{{ url_for('short_link_view', short=short, _external=True) }}</a>
+            </h5>
           </p>
         </div>
         <div class="col-sm">
