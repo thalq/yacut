@@ -1,19 +1,25 @@
 from flask_wtf import FlaskForm
+from settings import MAX_LINK_LENGHT, REGEX_PATTERN
 from wtforms import StringField, SubmitField, URLField
-from wtforms.validators import URL, DataRequired, Length, Optional
+from wtforms.validators import URL, DataRequired, Length, Optional, Regexp
 
 
 class URLForm(FlaskForm):
     original_link = URLField(
-        'Добавьте ссылку, которую будем укорачивать.',
+        'Длинная ссылка',
         validators=[
             DataRequired(message='Обязательное поле'),
             Length(1, 256),
-            URL(require_tld=True, message='Некорректная ссылка')
+            URL(message='Некорректная ссылка')
         ]
     )
     custom_id = StringField(
-        'Введите вариант короткой ссылки',
-        validators=[Length(1, 16), Optional()]
+        'Ваш вариант короткой ссылки',
+        validators=[
+            Length(max=MAX_LINK_LENGHT,
+                   message=f'Длина ссылки должна быть до {MAX_LINK_LENGHT} символов'),
+            Regexp(REGEX_PATTERN,
+                   message='Можно использовать только латинские буквы и арабские цифры'),
+            Optional()]
     )
-    submit = SubmitField('Создать') 
+    submit = SubmitField('Создать')
