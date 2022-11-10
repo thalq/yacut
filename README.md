@@ -53,6 +53,13 @@ pip install -r requirements.txt
 flask run
 ```
 
+### Технологии:
+- Python 3
+- Flask 2.0
+- REST API
+- SQLAlchemy 1.4
+- Git
+
 ## Автор
 Таня Халквист
 
