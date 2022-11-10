@@ -9,6 +9,7 @@ from .models import URL_map
 from .views import get_unique_short_id
 from settings import MAX_LINK_LENGHT, REGEX_PATTERN, URL_REGEX_PATTERN
 
+
 def to_dict(yacut):
     return dict(
         url=yacut.original,
