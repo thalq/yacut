@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
-from settings import MAX_LINK_LENGHT, REGEX_PATTERN
 from wtforms import StringField, SubmitField, URLField
 from wtforms.validators import URL, DataRequired, Length, Optional, Regexp
+
+from settings import MAX_LINK_LENGHT, REGEX_PATTERN
 
 
 class URLForm(FlaskForm):

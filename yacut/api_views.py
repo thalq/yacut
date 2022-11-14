@@ -28,7 +28,6 @@ def get_original_link(short_id):
 @app.route('/api/id/', methods=['POST'])
 def add_opinion():
     data = request.get_json()
-    print(data)
     if not data:
         raise InvalidAPIUsage('Отсутствует тело запроса')
     original = data.get('url')
